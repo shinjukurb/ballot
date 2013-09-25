@@ -2,4 +2,8 @@
   = link_to "Ballot", root_path, :class => 'navbar-brand'
 .navbar-collapse.collapse
   .navbar-right
-    = link_to 'Login', signin_path, class: "btn btn-default"
+    - if user_signed_in?
+      Logged in as #{current_user.name}
+      = link_to 'Logout', signout_path, class: "btn btn-default"
+    - else
+      = link_to 'Login', signin_path, class: "btn btn-success"
