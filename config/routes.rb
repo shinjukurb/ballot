@@ -1,6 +1,8 @@
 Ballot::Application.routes.draw do
   root to: 'welcome#index'
 
+  resources :topics
+
   get '/auth/:provider/callback', to: 'sessions#create'
 
   # omniauth path
